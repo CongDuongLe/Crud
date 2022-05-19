@@ -5,8 +5,10 @@ import EmojiPicker from 'rn-emoji-keyboard'
 import { Ionicons } from '@expo/vector-icons';
 import { collection, addDoc } from 'firebase/firestore';
 import {database} from '../../firebase/config'
+import {useTailwind} from 'tailwind-rn'
 
 const Add = () => {
+    const tailwind = useTailwind()
     const navigation = useNavigation()
     // state for items
     const [items, setItems] = useState({
@@ -33,8 +35,6 @@ const Add = () => {
         navigation.goBack()
     }
 
-
-
   return (
     <SafeAreaView style = {styles.container}>
       <Text 
@@ -44,7 +44,8 @@ const Add = () => {
           fontSize : 20,
           color : '#787A91',
           fontWeight: '600',
-          }}>
+          }}     
+          >
             Hi! What are your feeling?</Text>
       <Text 
         onPress = {() => setKeyboard(true)}
